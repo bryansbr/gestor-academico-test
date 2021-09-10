@@ -4,6 +4,12 @@
 INSERT INTO `u_calle`.`Persona`
               (`id_persona`, `nombre`, `apellido`, `fech_nac`, `genero`, `correo`, `direccion`, 
               `celular`, `nacionalidad`, `nom_usuario`, `contrasena`, `creado_en`)
+VALUES (5755754, 'Luis', 'Caicedo', '2002-06-29', 'M', 'luiscaicedo307@gmail.com', 
+       'Cr 100 A oeste 1c-41', 3184335890, 'Colombiano', 'luiscaicedo03', SHA('1007560Luis'), '2015-05-20');
+       
+INSERT INTO `u_calle`.`Persona`
+              (`id_persona`, `nombre`, `apellido`, `fech_nac`, `genero`, `correo`, `direccion`, 
+              `celular`, `nacionalidad`, `nom_usuario`, `contrasena`, `creado_en`)
 VALUES (2626266, 'Darwin', 'Alvarez', '2003-03-15', 'M', 'darwin.alvarez@ucalle.edu.co', 
        'Av6 oeste 41-49', 3127231185, 'Colombiano', 'darwinsav', SHA('Nomeimporta.com'), '2021-09-10');
 
