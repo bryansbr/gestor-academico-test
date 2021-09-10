@@ -1,6 +1,11 @@
 -- -----------------------------------------------------
 -- TABLA PERSONA
 -- -----------------------------------------------------
+INSERT INTO `u_calle`.`Persona`
+              (`id_persona`, `nombre`, `apellido`, `fech_nac`, `genero`, `correo`, `direccion`, 
+              `celular`, `nacionalidad`, `nom_usuario`, `contrasena`, `creado_en`)
+VALUES (2626266, 'Darwin', 'Alvarez', '2003-03-15', 'M', 'darwin.alvarez@ucalle.edu.co', 
+       'Av6 oeste 41-49', 3127231185, 'Colombiano', 'darwinsav', SHA('Nomeimporta.com'), '2021-09-10');
 
 INSERT INTO `u_calle`.`Persona`
               (`id_persona`, `nombre`, `apellido`, `fech_nac`, `genero`, `correo`, `direccion`, 
