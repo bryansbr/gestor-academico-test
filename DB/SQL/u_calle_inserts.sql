@@ -1,11 +1,18 @@
 -- -----------------------------------------------------
 -- TABLA PERSONA
 -- -----------------------------------------------------
+
 INSERT INTO `u_calle`.`Persona`
               (`id_persona`, `nombre`, `apellido`, `fech_nac`, `genero`, `correo`, `direccion`, 
               `celular`, `nacionalidad`, `nom_usuario`, `contrasena`, `creado_en`)
-VALUES (5755754, 'Luis', 'Caicedo', '2002-06-29', 'M', 'luiscaicedo307@gmail.com', 
-       'Cr 100 A oeste 1c-41', 3184335890, 'Colombiano', 'luiscaicedo03', SHA('1007560Luis'), '2015-05-20');
+VALUES (2403112, 'Amilcar', 'Soteldo', '1990-01-17', 'M', 'eduar.soteldo@ucalle.edu.co', 
+       'Calle 13 # 80-12', 3184357389, 'Venezolano', 'jamilcarsd', SHA('profsoteldo19'), '2019-03-21');
+
+INSERT INTO `u_calle`.`Persona`
+              (`id_persona`, `nombre`, `apellido`, `fech_nac`, `genero`, `correo`, `direccion`, 
+              `celular`, `nacionalidad`, `nom_usuario`, `contrasena`, `creado_en`)
+VALUES (5755754, 'Luis', 'Caicedo', '2002-06-29', 'M', 'luis.caicedo@ucalle.edu.co', 
+       'Cr 100 A oeste 1c-41', 3184335890, 'Colombiano', 'leduardocm', SHA('1007560Luis'), '2015-05-20');
        
 INSERT INTO `u_calle`.`Persona`
               (`id_persona`, `nombre`, `apellido`, `fech_nac`, `genero`, `correo`, `direccion`, 
@@ -55,7 +62,7 @@ INSERT INTO `u_calle`.`Administrador` (`id_adm`, `id_persona`) VALUES (1, 123456
 
 INSERT INTO `u_calle`.`Profesor`
               (`id_profesor`, `profesion`, `id_persona`, `id_adm`)
-VALUES (502, 'sociales', 240311, 1);
+VALUES (502, 'Historiador', 2403112, 1);
 
 INSERT INTO `u_calle`.`Profesor`
               (`id_profesor`, `profesion`, `id_persona`, `id_adm`)
