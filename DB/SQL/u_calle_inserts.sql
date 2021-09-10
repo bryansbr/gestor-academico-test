@@ -55,6 +55,10 @@ INSERT INTO `u_calle`.`Administrador` (`id_adm`, `id_persona`) VALUES (1, 123456
 
 INSERT INTO `u_calle`.`Profesor`
               (`id_profesor`, `profesion`, `id_persona`, `id_adm`)
+VALUES (502, 'sociales', 240311, 1);
+
+INSERT INTO `u_calle`.`Profesor`
+              (`id_profesor`, `profesion`, `id_persona`, `id_adm`)
 VALUES (707, 'Ingeniero de Sistemas', 7654321, 1);
 
 INSERT INTO `u_calle`.`Profesor`
