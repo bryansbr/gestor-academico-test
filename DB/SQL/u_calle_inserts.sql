@@ -59,13 +59,13 @@ VALUES (1264457, 'Antonia', 'Rodriguez', '1985-06-13', 'F', 'antonia.rodriguez@u
 INSERT INTO `u_calle`.`Persona`
               (`id_persona`, `nombre`, `apellido`, `fech_nac`, `genero`, `correo`, `direccion`, 
               `celular`, `nacionalidad`, `nom_usuario`, `contrasena`, `creado_en`)
-VALUES (1264457, 'Carla', 'Venegas', '1994-09-16', 'F', 'carla.venegas@ucalle.edu.co', 
+VALUES (1304560, 'Carla', 'Venegas', '1994-09-16', 'F', 'carla.venegas@ucalle.edu.co', 
        'Trv 103 # 44-17', 3111234567, 'CHL', 'carlavs', SHA('profcarla20'), '2020-08-12');
 
 INSERT INTO `u_calle`.`Persona`
               (`id_persona`, `nombre`, `apellido`, `fech_nac`, `genero`, `correo`, `direccion`, 
               `celular`, `nacionalidad`, `nom_usuario`, `contrasena`, `creado_en`)
-VALUES (1264457, 'Richard', 'Aguirre', '1970-06-20', 'M', 'richard.aguirre@ucalle.edu.co', 
+VALUES (2305030, 'Richard', 'Aguirre', '1970-06-20', 'M', 'richard.aguirre@ucalle.edu.co', 
        'Cll 86 # 57-13', 3002304571, 'COL', 'richardac', SHA('profrichard07'), '2021-05-24');
 
 -- EST
@@ -127,7 +127,7 @@ INSERT INTO `u_calle`.`Persona`
               (`id_persona`, `nombre`, `apellido`, `fech_nac`, `genero`, `correo`, `direccion`, 
               `celular`, `nacionalidad`, `nom_usuario`, `contrasena`, `creado_en`)
 VALUES (2858144, 'Sophia', 'Walker', '2004-08-10', 'F', 'sophia.walker@ucalle.edu.co', 
-       'Calle 117 # 30-20', 3156648790, 'USA', 'sophiaw', SHA('sophiaw21'), '2021-05-24');
+       'Calle 117 # 30-20', 3156648790, 'USA', 'sophiaw', SHA('sophiaw19'), '2019-05-24');
 
 -- -----------------------------------------------------
 -- TABLA ADMINISTRADOR
@@ -157,14 +157,112 @@ VALUES (351, 'ING. IND', 2345437, 1);
 
 INSERT INTO `u_calle`.`Profesor`
               (`id_profesor`, `profesion`, `id_persona`, `id_adm`)
-VALUES (176, 'MAT', 1264457, 1);
+VALUES (176, 'MATM', 1264457, 1);
 
 INSERT INTO `u_calle`.`Profesor`
               (`id_profesor`, `profesion`, `id_persona`, `id_adm`)
-VALUES (897, 'MAT', 1264457, 1);
+VALUES (897, 'MEDI', 1304560, 1);
 
 INSERT INTO `u_calle`.`Profesor`
               (`id_profesor`, `profesion`, `id_persona`, `id_adm`)
-VALUES (095, 'FIS', 1264457, 1);
+VALUES (095, 'FIS', 2305030, 1);
 
+-- -----------------------------------------------------
+-- TABLA PROGRAMA ACADÉMICO
+-- -----------------------------------------------------
 
+INSERT INTO `u_calle`.`Programa_Academico` 
+              (`id_progr`, `nom_progr`, `abrv_progr`, `jornada`)
+VALUES (3743, 'Ingeniería de Sistemas', 'SIS' 'DIU');
+
+INSERT INTO `u_calle`.`Programa_Academico` 
+              (`id_progr`, `nom_progr`, `abrv_progr`, `jornada`)
+VALUES (3751, 'Ingeniería Industrial', 'IND', 'DIU');
+
+INSERT INTO `u_calle`.`Programa_Academico` 
+              (`id_progr`, `nom_progr`, `abrv_progr`, `jornada`)
+VALUES (2635, 'Tecnología en Atencion Prehospitalaria', 'TAP', 'NOC');
+
+INSERT INTO `u_calle`.`Programa_Academico` 
+              (`id_progr`, `nom_progr`, `abrv_progr`, `jornada`)
+VALUES (3660, 'Medicina', 'MED', 'DIU');
+
+INSERT INTO `u_calle`.`Programa_Academico` 
+              (`id_progr`, `nom_progr`, `abrv_progr`, `jornada`)
+VALUES (3146, 'Fisica', 'FIS', 'DIU');
+
+-- -----------------------------------------------------
+-- TABLA ESTUDIANTE
+-- -----------------------------------------------------
+
+INSERT INTO `u_calle`.`Estudiante` 
+              (`id_estudiante`, `id_persona`, `id_progr`)
+VALUES (2124087, 3921028, 3743);
+
+INSERT INTO `u_calle`.`Estudiante` 
+              (`id_estudiante`, `id_persona`, `id_progr`)
+VALUES (2110010, 8674843, 3751);
+
+INSERT INTO `u_calle`.`Estudiante` 
+              (`id_estudiante`, `id_persona`, `id_progr`)
+VALUES (2135580, 3230911, 3743);
+
+INSERT INTO `u_calle`.`Estudiante` 
+              (`id_estudiante`, `id_persona`, `id_progr`)
+VALUES (2143027, 5388785, 2635);
+
+INSERT INTO `u_calle`.`Estudiante` 
+              (`id_estudiante`, `id_persona`, `id_progr`)
+VALUES (2170013, 4346337, 3751);
+
+INSERT INTO `u_calle`.`Estudiante` 
+              (`id_estudiante`, `id_persona`, `id_progr`)
+VALUES (2112345, 4781242, 2635);
+
+INSERT INTO `u_calle`.`Estudiante` 
+              (`id_estudiante`, `id_persona`, `id_progr`)
+VALUES (2123044, 6563465, 2635);
+
+INSERT INTO `u_calle`.`Estudiante` 
+              (`id_estudiante`, `id_persona`, `id_progr`)
+VALUES (2150587, 1976918, 3660);
+
+INSERT INTO `u_calle`.`Estudiante` 
+              (`id_estudiante`, `id_persona`, `id_progr`)
+VALUES (2037890, 3983655, 3146);
+
+INSERT INTO `u_calle`.`Estudiante` 
+              (`id_estudiante`, `id_persona`, `id_progr`)
+VALUES (1929368, 2858144, 3146);
+
+-- -----------------------------------------------------
+-- TABLA ASIGNATURA
+-- -----------------------------------------------------
+
+INSERT INTO `u_calle`.`Asignatura` 
+              (`id_asign`, `nom_asign`, `id_profesor`, `id_persona`, `id_progr`)
+VALUES (10, 'Introduccion a la Ingenieria Industrial', 351, 2345437, 3751);
+
+INSERT INTO `u_calle`.`Asignatura` 
+              (`id_asign`, `nom_asign`, `id_profesor`, `id_persona`, `id_progr`)
+VALUES (17, 'Fundamentos de Programacion', 707, 7654321, 3743);
+
+INSERT INTO `u_calle`.`Asignatura` 
+              (`id_asign`, `nom_asign`, `id_profesor`, `id_persona`, `id_progr`)
+VALUES (12, 'Fundamentos de Fisica Mecanica', 095, 2305030, 3743);
+
+-- -----------------------------------------------------
+-- TABLA NOTA
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- TABLA COLOCA
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- TABLA CURSA
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- TABLA TIENE
+-- -----------------------------------------------------

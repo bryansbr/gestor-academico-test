@@ -94,7 +94,8 @@ DROP TABLE IF EXISTS `u_calle`.`Programa_Academico` ;
 
 CREATE TABLE IF NOT EXISTS `u_calle`.`Programa_Academico` (
   `id_progr` INT NOT NULL,
-  `nom_programa` VARCHAR(70) NOT NULL,
+  `nom_progr` VARCHAR(70) NOT NULL,
+  `abrv_progr` VARCHAR(3) NOT NULL,
   `jornada` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`id_progr`))
 ENGINE = InnoDB;
@@ -137,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `u_calle`.`Asignatura` (
   `id_persona` INT NOT NULL,
   `id_progr` INT NOT NULL,
   PRIMARY KEY (`id_asign`, `id_profesor`, `id_persona`, `id_progr`),
-  INDEX `fk_Asignatura_Profesor1_idx` (`id_profesor` ASC, `id_persona` ASC) ,
+  INDEX `fk_Asignatura_Profesor1_idx` (`id_profesor` ASC, `id_persona` ASC),
   INDEX `fk_Asignatura_Programa_Academico1_idx` (`id_progr` ASC) ,
   CONSTRAINT `fk_Asignatura_Profesor1`
     FOREIGN KEY (`id_profesor` , `id_persona`)
