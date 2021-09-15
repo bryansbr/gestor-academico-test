@@ -2,8 +2,6 @@
 //conexión a mysql
 const mysqlConnection = require('../databases/driverMySql');
 
-
-
 //Controladors para acciones de rol administrador en mysql
 const adminCtrl = {};
 
@@ -12,7 +10,7 @@ adminCtrl.getAdmin = async (req, res) => {  //obtenemos error, filas y campos de
 	const {id} = req.params;
 	await mysqlConnection.query(
 		'SELECT * FROM persona INNER JOIN administrador ON'+
-		' persona.DocIdent = administrador.DocIdent WHERE administrador.DocIdent = ?',
+		' persona.id_persona = administrador.id_persona WHERE administrador.id_persona = ?',
 	    [id], (err, rows, fields)=> {
       	if(!err){
           	res.json(rows[0]);//retorna un arreglo. 
@@ -23,11 +21,10 @@ adminCtrl.getAdmin = async (req, res) => {  //obtenemos error, filas y campos de
   	});
 };
 
-
 //Este metodo selecciona todos los administradores de la base de datos
 adminCtrl.getAdmins = async (req, res) => {  //obtenemos error, filas y campos de la tabla
 	mysqlConnection.query(
-		'SELECT * FROM persona INNER JOIN administrador ON persona.DocIdent = administrador.DocIdent'
+		'SELECT * FROM persona INNER JOIN administrador ON persona.id_persona = administrador.id_persona'
 		, (err, rows, fields)=> {
 		if(!err){
 			res.json(rows);
@@ -38,32 +35,30 @@ adminCtrl.getAdmins = async (req, res) => {  //obtenemos error, filas y campos d
 	});
 };
 
-
-
 //Este metodo Crea un profesor
 adminCtrl.createProfesor = async (req, res) => {  
-	const {DocIdent, nombre, apellido, genero, fechaNac, nacionalidad, 
-		  direccion, celular, correoElectronico, id_admin, profesion} = req.body;
+	const {id_persona, nombre, apellido, fech_nac, correo, direccion, celular, 	genero, 
+		nacionalidad, nom_usuario, contrasena, creado_en, id_profesor, profesion, id_adm} = req.body;
 		await mysqlConnection.query(
-		'INSERT INTO persona values (?, ?, ?, ?, ?, ?, ?, ?, ?) ',
-		[DocIdent, nombre, apellido, genero, fechaNac, nacionalidad, 
-			direccion, celular, correoElectronico]
-		, (err, rows, fields) => {
-		if(!err)async() =>{	
+		'INSERT INTO persona values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+		[id_persona, nombre, apellido, fech_nac, correo, direccion, celular, 	genero, 
+			nacionalidad, nom_usuario, contrasena, creado_en, id_profesor, profesion, id_adm]
+			, (err, rows, fields) => {
+		if(!err) async() =>{	
 			await mysqlConnection.query(
 				'INSERT INTO profesor values (?, ?, ?) ',
-					 [DocIdent, id_admin, profesion]
+					 [id_persona, id_profesor, profesion, id_adm]
 					 , (err, rows, fields) => {
 					 if(!err){
-						 res.json({message: "saved profesor"});
+						 res.json({message: "Profesor(a) guardado(a)"});
 					 }
 					 else{
-						 console.log("=====> WError profesor en tabla persona" + err);
+						 console.log("=====> Error profesor en tabla persona" + err);
 					 };
 				
 					}
 			);		 
-		 	res.json({message: "saved"});
+		 	res.json({message: "Guardado"});
 		}
 		else{
 			console.log("=====> Error profesor en tabla profesor" + err);
@@ -71,7 +66,5 @@ adminCtrl.createProfesor = async (req, res) => {
 	});
 	
 };
-
-
 
 module.exports = adminCtrl;
