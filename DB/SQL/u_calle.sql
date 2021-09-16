@@ -159,7 +159,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `u_calle`.`Nota` ;
 
 CREATE TABLE IF NOT EXISTS `u_calle`.`Nota` (
-  `id_nota` INT NOT NULL AUTO_INCREMENT,
+  `id_nota` INT NOT NULL,
   `calificacion` DECIMAL(3,2) NOT NULL,
   PRIMARY KEY (`id_nota`))
 ENGINE = InnoDB;
