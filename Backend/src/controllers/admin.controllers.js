@@ -46,7 +46,7 @@ adminCtrl.createProfesor = async (req, res) => {
 			, (err, rows, fields) => {
 		if(!err) async() =>{	
 			await mysqlConnection.query(
-				'INSERT INTO profesor values (?, ?, ?) ',
+				'INSERT INTO profesor values (?, ?, ?, ?) ',
 					 [id_persona, id_profesor, profesion, id_adm]
 					 , (err, rows, fields) => {
 					 if(!err){
