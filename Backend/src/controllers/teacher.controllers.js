@@ -8,6 +8,7 @@ const teacherCtrl = {};
 //Este método selecciona solo un administrador de la base de datos
 teacherCtrl.getAsignaturasProfesor = async (req, res) => {  //obtenemos error, filas y campos de la tabla
 	const {id} = req.params;
+	// ====== Arreglar después ======
 	await mysqlConnection.query(
 		'SELECT profesor.DocIdent, asignado.Id_Asignatura, asignaturas.Nombre_Asignatura '+
     'FROM ((profesor INNER JOIN asignado ON profesor.DocIdent = asignado.DocIdent) '+

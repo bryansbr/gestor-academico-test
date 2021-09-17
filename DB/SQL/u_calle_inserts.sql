@@ -19,6 +19,9 @@ VALUES
        (1234567, 'Oscar', 'Bedoya', '1980-08-07', 'M', 'oscar.bedoya@ucalle.edu.co', 
               'Cll 100 # 10-05', 3152679201, 'COL', 'oscarbl', SHA('oscarbed123'), '2015-07-17'),
 
+       (7654312, 'Cristiano', 'Ronaldo', '1985-02-05', 'M', 'cristiano.ronaldo@ucalle.edu.co', 
+              'Cll 100 # 80-110', 3134576534, 'POR', 'cronaldo', SHA('elbichocr7'), '2009-07-07'),
+
        (7654321, 'Bryan', 'Biojo', '1997-08-19', 'M', 'bryan.biojo@ucalle.edu.co', 
               'Cra 25 # 5C-17', 3156649362, 'COL', 'bryanbr', SHA('profbryan18'), '2018-02-05'),
 
@@ -77,7 +80,8 @@ VALUES
 
 INSERT INTO `u_calle`.`Administrador` (`id_adm`, `id_persona`)
 VALUES 
-       (1, 1234567);
+       (1, 1234567),
+       (2, 7654312);
 
 -- -----------------------------------------------------
 -- TABLA PROFESOR
