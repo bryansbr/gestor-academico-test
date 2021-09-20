@@ -17,23 +17,24 @@ adminCtrl.getAdmin = async (req, res) => {  // Obtenemos error, filas y campos d
       	}
       	else{
          	console.log("Ha ocurrido un error: =====> " + err);
-      	};
+      	}
   	});
-};
+}
 
 //Este metodo selecciona TODOS los administradores de la base de datos
 adminCtrl.getAdmins = async (req, res) => {  // Obtenemos error, filas y campos de la tabla
 	await mysqlConnection.query(
-		'SELECT * FROM persona INNER JOIN administrador ON persona.id_persona = administrador.id_persona',
+		'SELECT * FROM persona',
+		//'SELECT * FROM persona INNER JOIN administrador ON persona.id_persona = administrador.id_persona',
 		(err, rows, fields) => {
 		if (!err) {
 			res.json(rows); // Retorna un arreglo de objetos con los administradores.
 		}
 		else{
 			console.log("Ha ocurrido un error: =====> " + err);
-		};
+		}
 	});
-};
+}
 
 // **********************
 //Este metodo selecciona TODAS las personas de la base de datos
@@ -46,9 +47,9 @@ adminCtrl.getPersons = async (req, res) => {  // Obtenemos error, filas y campos
 		}
 		else{
 			console.log("Ha ocurrido un error: =====> " + err);
-		};
+		}
 	});
-};
+}
 // **********************
 
 // Este método permite crear una persona en la tabla 'Persona'

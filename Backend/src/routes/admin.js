@@ -12,7 +12,7 @@ router.route('/')
 router.route('/:id')
     .get(getAdmin);
     
-router.route('personas')
+router.route('/personas')
     .get(getPersons);
 
 router.route('/crearProfesor')

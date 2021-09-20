@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 
 // Db connection
-//const { mongoose } = require('./databases/driverMongoDB');
+const { mongoose } = require('./databases/driverMongoDB');
 const { mysql } = require('./databases/driverMySql');
 
 // Settings 
