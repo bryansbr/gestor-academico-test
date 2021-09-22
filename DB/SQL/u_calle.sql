@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `u_calle`.`Persona` (
   `genero` VARCHAR(10) NOT NULL,
   `correo` VARCHAR(50) NOT NULL,
   `direccion` VARCHAR(50) NULL,
-  `celular` INT NOT NULL,
+  `celular` BIGINT NOT NULL,
   `nacionalidad` VARCHAR(50) NULL,
   `nom_usuario` VARCHAR(15) NOT NULL,
   `contrasena` VARCHAR(40) NOT NULL,
