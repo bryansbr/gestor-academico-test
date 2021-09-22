@@ -3,7 +3,7 @@ const router = express.Router();
 
 //llamnado controlador
 const {getAdmins, getAdmin, getPerson, createProfesor, createPerson, createEstudiante, createPrograma, 
-    createAdministrador, createAsignatura, editPersona, editAsignatura, editPrograma} = require('../controllers/admin.controllers');
+    createAdministrador, createAsignatura, editPersona, editAsignatura, editPrograma} = require('../controllers/admin.controllers.js');
 
 //Rutas para obtener datos (Tipo GET)
 router.route('/')

@@ -1,0 +1,23 @@
+[
+  {
+    "id_asign": 10,
+    "nom_asign": "Introduccion a la Ingenieria Industrial",
+    "id_profesor": 351,
+    "id_persona": 2345437,
+    "id_progr": 3751
+  },
+  {
+    "id_asign": 12,
+    "nom_asign": "Fundamentos de Fisica Mecanica",
+    "id_profesor": 95,
+    "id_persona": 2305030,
+    "id_progr": 3743
+  },
+  {
+    "id_asign": 17,
+    "nom_asign": "Fundamentos de Programacion",
+    "id_profesor": 707,
+    "id_persona": 7654321,
+    "id_progr": 3743
+  }
+]

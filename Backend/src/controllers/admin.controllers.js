@@ -39,9 +39,10 @@ adminCtrl.getAdmins = async (req, res) => {  // Obtenemos error, filas y campos 
 adminCtrl.getPerson = async(req, res) => {
 	mysqlConnection.query(
 		'SELECT * FROM persona',
-		(err, rows, fields) => {
+		(err, rowsa, fields) => {
 			if (!err) {
-				res.json(rows); // Retorna un JSON con TODAS las personas de la BD.
+				console.log(rowsa);
+				res.json(rowsa); // Retorna un JSON con TODAS las personas de la BD.
 			}
 			else {
 				console.log("=====> Ha ocurrido un error obteniendo Personas: " + err);

@@ -8,7 +8,7 @@ const mysqlConnection = mysql.createConnection({
 });
 mysqlConnection.connect((err) => {
   if (err) throw err;
-  console.log('mysql =========> ¡Conexión exitosa!');
+  console.log('MySQL =========> ¡Conexión exitosa!');
 });
 
 module.exports = mysqlConnection;

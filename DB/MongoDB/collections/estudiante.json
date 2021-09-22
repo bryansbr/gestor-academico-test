@@ -1,0 +1,52 @@
+[
+  {
+    "id_estudiante": 1929368,
+    "id_persona": 2858144,
+    "id_progr": 3146
+  },
+  {
+    "id_estudiante": 2037890,
+    "id_persona": 3983655,
+    "id_progr": 3146
+  },
+  {
+    "id_estudiante": 2110010,
+    "id_persona": 8674843,
+    "id_progr": 3751
+  },
+  {
+    "id_estudiante": 2112345,
+    "id_persona": 4781242,
+    "id_progr": 2635
+  },
+  {
+    "id_estudiante": 2123044,
+    "id_persona": 6563465,
+    "id_progr": 2635
+  },
+  {
+    "id_estudiante": 2124087,
+    "id_persona": 3921028,
+    "id_progr": 3743
+  },
+  {
+    "id_estudiante": 2135580,
+    "id_persona": 3230911,
+    "id_progr": 3743
+  },
+  {
+    "id_estudiante": 2143027,
+    "id_persona": 5388785,
+    "id_progr": 2635
+  },
+  {
+    "id_estudiante": 2150587,
+    "id_persona": 1976918,
+    "id_progr": 3660
+  },
+  {
+    "id_estudiante": 2170013,
+    "id_persona": 4346337,
+    "id_progr": 3751
+  }
+]

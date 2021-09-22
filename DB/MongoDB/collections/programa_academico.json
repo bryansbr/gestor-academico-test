@@ -1,0 +1,32 @@
+[
+  {
+    "id_progr": 2635,
+    "nom_progr": "Tecnologia en Atencion Prehospitalaria",
+    "abrv_progr": "TAP",
+    "jornada": "NOC"
+  },
+  {
+    "id_progr": 3146,
+    "nom_progr": "Fisica",
+    "abrv_progr": "FIS",
+    "jornada": "DIU"
+  },
+  {
+    "id_progr": 3660,
+    "nom_progr": "Medicina",
+    "abrv_progr": "MED",
+    "jornada": "DIU"
+  },
+  {
+    "id_progr": 3743,
+    "nom_progr": "Ingenieria de Sistemas",
+    "abrv_progr": "SIS",
+    "jornada": "DIU"
+  },
+  {
+    "id_progr": 3751,
+    "nom_progr": "Ingenieria Industrial",
+    "abrv_progr": "IND",
+    "jornada": "DIU"
+  }
+]

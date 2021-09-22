@@ -1,0 +1,44 @@
+[
+  {
+    "id_profesor": 95,
+    "profesion": "FIS",
+    "id_persona": 2305030,
+    "id_adm": 1
+  },
+  {
+    "id_profesor": 176,
+    "profesion": "MATM",
+    "id_persona": 1264457,
+    "id_adm": 1
+  },
+  {
+    "id_profesor": 351,
+    "profesion": "ING. IND",
+    "id_persona": 2345437,
+    "id_adm": 1
+  },
+  {
+    "id_profesor": 502,
+    "profesion": "HIST",
+    "id_persona": 2403112,
+    "id_adm": 1
+  },
+  {
+    "id_profesor": 523,
+    "profesion": "ING. SIS",
+    "id_persona": 3423726,
+    "id_adm": 1
+  },
+  {
+    "id_profesor": 707,
+    "profesion": "ING. SIS",
+    "id_persona": 7654321,
+    "id_adm": 1
+  },
+  {
+    "id_profesor": 897,
+    "profesion": "MEDI",
+    "id_persona": 1304560,
+    "id_adm": 1
+  }
+]
