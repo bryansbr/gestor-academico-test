@@ -1,28 +1,65 @@
-// Conexión a MySQL
+// Conexión a MySQL.
 const mysqlConnection = require('../databases/driverMySql');
 
-// Controladores para acciones de rol administrador en MySQL
+// Controladores para acciones de rol administrador en MySQL.
 const adminCtrl = { };
 
-// Este método selecciona SOLO UN administrador de la base de datos
-adminCtrl.getAdmin = async (req, res) => {  // Obtenemos error, filas y campos de la tabla
+// ========================== MÉTODOS PARA LA OBTENCIÓN DE DATOS ==========================
+
+// Este método, selecciona UNA persona por ID de la base de datos.
+adminCtrl.getPersonById = async(req, res) => {
+	const { id } = req.params;
+	// Escriba aquí abajo su código.
+	await mysqlConnection.query(
+		'SELECT * FROM persona WHERE persona.id_persona = ?', // Escriba su consulta para obtener una persona por ID en la base de datos.
+		[id],
+		(err, rows, fields) => {
+			if (!err) {
+				res.json(rows[0]) // Retorna un JSON en la primera posición con la persona. 
+			}
+			else {
+				console.log('' + err); // Escriba su mensaje aquí.
+			}
+		}
+	);
+}
+
+// Este método, selecciona TODAS las personas de la base de datos.
+adminCtrl.getPersons = async(req, res) => {
+	// Escriba aquí abajo su código.
+	await mysqlConnection.query(
+		'SELECT * FROM persona', // Escriba su consulta para obtener todas las personas en la base de datos.
+		(err, rows, fields) => {
+			if (!err) {
+				res.json(rows) // Retorna un JSON con todas las personas. 
+			}
+			else {
+				console.log('' + err); // Escriba su mensaje aquí.
+			}
+		}
+	);
+}
+// Este método selecciona UN administrador de la base de datos.
+adminCtrl.getAdminById = async (req, res) => {  // Obtenemos error, filas y campos de la tabla
 	const { id } = req.params;
 	await mysqlConnection.query(
 		'SELECT * FROM persona INNER JOIN administrador ON '+
 		'persona.id_persona = administrador.id_persona WHERE administrador.id_persona = ?',
-	    [id], (err, rows, fields) => {
-      	if (!err) {
-          	res.json(rows[0]); // Retorna un arreglo de tipo JSON en la primera posición con el administrador. 
-      	}
-      	else {
-         	console.log("=====> Ha ocurrido un error: " + err);
-      	}
-  	});
+	    [id],
+		(err, rows, fields) => {
+			if (!err) {
+          		res.json(rows[0]); // Retorna un JSON en la primera posición con el administrador. 
+      		}
+      		else {
+         		console.log("=====> Ha ocurrido un error obteniendo al administrador: " + err);
+      		}
+		}
+	);
 }
 
-// Este metodo selecciona TODOS los administradores de la base de datos
-adminCtrl.getAdmins = async (req, res) => {  // Obtenemos error, filas y campos de la tabla
-	mysqlConnection.query(
+// Este metodo selecciona TODOS los administradores de la base de datos.
+adminCtrl.getAdmins = async (req, res) => {  // Obtenemos error, filas y campos de la tabla.
+	await mysqlConnection.query(
 		//'SELECT * FROM persona',
 		'SELECT * FROM persona INNER JOIN administrador ON persona.id_persona = administrador.id_persona',
 		(err, rows, fields) => {
@@ -36,20 +73,75 @@ adminCtrl.getAdmins = async (req, res) => {  // Obtenemos error, filas y campos 
 	);
 }
 
-adminCtrl.getPerson = async(req, res) => {
-	mysqlConnection.query(
-		'SELECT * FROM persona',
-		(err, rowsa, fields) => {
-			if (!err) {
-				console.log(rowsa);
-				res.json(rowsa); // Retorna un JSON con TODAS las personas de la BD.
-			}
-			else {
-				console.log("=====> Ha ocurrido un error obteniendo Personas: " + err);
-			}
-		}
+// Este método, selecciona UN profesor por ID de la base de datos. 
+adminCtrl.getProfessorById = async(req, res) => {
+	const { id } = req.params;
+	// Escriba aquí abajo su código.
+	await mysqlConnection.query(
+
 	);
 }
+
+// Este método, selecciona TODOS los profesores de la base de datos.
+adminCtrl.getProfessors = async(req, res) => {
+	// Escriba aquí abajo su código
+	await mysqlConnection.query(
+
+	);
+}
+
+// Este método, selecciona UN estudiante por ID de la base de datos. 
+adminCtrl.getStudentById = async(req, res) => {
+	const { id } = req.params;
+	// Escriba aquí abajo su código.
+	await mysqlConnection.query(
+
+	);
+}
+
+// Este método, selecciona TODOS los estudiantes de la base de datos.
+adminCtrl.getStudents = async(req, res) => {
+	// Escriba aquí abajo su código
+	await mysqlConnection.query(
+
+	);
+}
+
+// Este método, selecciona UNA asignatura por ID de la base de datos. 
+adminCtrl.getCourseById = async(req, res) => {
+	const { id } = req.params;
+	// Escriba aquí abajo su código.
+	await mysqlConnection.query(
+
+	);
+}
+
+// Este método, selecciona TODAS las asignaturas de la base de datos.
+adminCtrl.getCourses = async(req, res) => {
+	// Escriba aquí abajo su código
+	await mysqlConnection.query(
+
+	);
+}
+
+// Este método, selecciona UN programa académico por ID de la base de datos. 
+adminCtrl.getCareerById = async(req, res) => {
+	const { id } = req.params;
+	// Escriba aquí abajo su código.
+	await mysqlConnection.query(
+		
+	);
+}
+
+// Este método, selecciona TODOS los programas académicos de la base de datos.
+adminCtrl.getCareers = async(req, res) => {
+	// Escriba aquí abajo su código
+	await mysqlConnection.query(
+
+	);
+}
+
+// ========================== MÉTODOS PARA CREAR DATOS ==========================
 
 //Este metodo crea una persona en la tabla persona
 adminCtrl.createPerson = async (req, res) => {  
@@ -71,7 +163,6 @@ adminCtrl.createPerson = async (req, res) => {
 		}
 	});
 }
-
 
 //Este metodo Crea un profesor en la tabla profesor
 adminCtrl.createProfesor = async (req, res) => {  
@@ -108,7 +199,6 @@ adminCtrl.createEstudiante = async (req, res) => {
 	);		 
 };
 
-
 //Este metodo Crea un administrador en la tabla administrador
 adminCtrl.createAdministrador = async (req, res) => {  
 	const {id_persona, permissions_delete} = req.body;
@@ -125,7 +215,6 @@ adminCtrl.createAdministrador = async (req, res) => {
 		}
 	);		 
 };
-
 
 //Este metodo Crea un programa en la tabla programa
 adminCtrl.createPrograma = async (req, res) => {  
@@ -144,7 +233,6 @@ adminCtrl.createPrograma = async (req, res) => {
 	);		 
 };
 
-
 //Este metodo Crea una asignatura en la tabla asignatura
 adminCtrl.createAsignatura = async (req, res) => {  
 	const {id_asignatura, name_asignatura, id_programa} = req.body;
@@ -161,7 +249,6 @@ adminCtrl.createAsignatura = async (req, res) => {
 		}
 	);		 
 };
-
 
 //Este metodo edita una persona en la tabla personaa
 adminCtrl.editPersona = async (req, res) => {
@@ -219,6 +306,5 @@ adminCtrl.editAsignatura = async (req, res) => {
 		}
 	);		 
 };
-
 
 module.exports = adminCtrl;
