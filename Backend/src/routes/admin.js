@@ -9,14 +9,19 @@ const router = express.Router();
 const { getPersonById, getPersons, getAdminById, getAdmins,
     getProfessorById, getProfessors, getStudentById,
     getStudents, getCourseById, getCourses,
-    getCareerById, getCareers} = require('../controllers/admin.controllers');
+    getCareerById, getCareers } = require('../controllers/admin.controllers');
 
-//Rutas para obtener datos (Tipo GET), 
+// ========================== Rutas para obtener datos (Tipo GET) ========================== 
 router.route('/')
     .get(getAdmins); 
 
 router.route('/:id')
     .get(getAdminById); 
+
+
+
+
+
 
 //Rutas para crear datos (Insertar en tablas) (Tipo POST)
 router.route('/crearPersona')
