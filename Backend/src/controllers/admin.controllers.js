@@ -91,7 +91,7 @@ adminCtrl.getProfessors = async(req, res) => {
 	);
 }
 
-// GRUPO 2: Leidy, Juniyelitmar
+// GRUPO 2: Kimberly, Isabella, Katerine
 // Este método, selecciona UN estudiante por ID de la base de datos. 
 adminCtrl.getStudentById = async(req, res) => {
 	const { id } = req.params;
@@ -109,21 +109,36 @@ adminCtrl.getStudents = async(req, res) => {
 	);
 }
 
-// GRUPO 3: Kimberly, Isabella, Katerine
+// GRUPO 3: Leidy, Juniyelitmar
 // Este método, selecciona UNA asignatura por ID de la base de datos. 
 adminCtrl.getCourseById = async(req, res) => {
 	const { id } = req.params;
-	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
-
+		'select * from asignatura where asignatura.id_asign = ? ', 
+		[id],
+		(err, rows, fields) => {
+			if (!err) {
+          		res.json(rows[0]); // Retorna un JSON en la primera posición con el administrador. 
+      		}
+      		else {
+         		console.log("=====> Ha ocurrido un error obteniendo al administrador: " + err);
+      		}
+		}
 	);
 }
 
 // Este método, selecciona TODAS las asignaturas de la base de datos.
 adminCtrl.getCourses = async(req, res) => {
-	// Escriba aquí abajo su código
 	await mysqlConnection.query(
-
+		'select * from asignatura',
+		(err, rows, fields) => {
+			if (!err) {
+				res.json(rows); // Retorna un JSON con todos los administradores. 
+			}
+			else {
+				console.log("=====> Ha ocurrido un error obteniendo Administradores: " + err);
+			}
+		}
 	);
 }
 

@@ -18,7 +18,11 @@ router.route('/')
 router.route('/:id')
     .get(getAdminById); 
 
+router.route('/consultarAsignaturas/:id')
+    .get(getCourseById);
 
+router.route('/consultarAsignaturas')
+    .get(getCourses); 
 
 
 
