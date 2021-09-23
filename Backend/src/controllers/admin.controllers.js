@@ -77,8 +77,18 @@ adminCtrl.getAdmins = async (req, res) => {  // Obtenemos error, filas y campos 
 // Este método, selecciona UN profesor por ID de la base de datos. 
 adminCtrl.getProfessorById = async(req, res) => {
 	const { id } = req.params;
-	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
+		'SELECT * FROM persona INNER JOIN profesor ON '+
+		'persona.id_persona = profesor.id_persona WHERE profesor.id_profesor = ?',
+	   [id],
+		(err, rows, fields) => {
+			if (!err) {
+          		res.json(rows[0]); // Retorna un JSON en la primera posición con el administrador. 
+      		}
+      		else {
+         		console.log("=====> Ha ocurrido un error obteniendo al administrador: " + err);
+      		}
+		}
 
 	);
 }
@@ -88,6 +98,15 @@ adminCtrl.getProfessors = async(req, res) => {
 	// Escriba aquí abajo su código
 	await mysqlConnection.query(
 
+		'SELECT * FROM persona INNER JOIN profesor ON persona.id_persona = profesor.id_persona',
+		(err, rows, fields) => {
+			if (!err) {
+				res.json(rows); // Retorna un JSON con todos los administradores. 
+			}
+			else {
+				console.log("=====> Ha ocurrido un error obteniendo Administradores: " + err);
+			}
+		}
 	);
 }
 
