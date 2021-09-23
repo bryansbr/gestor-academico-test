@@ -24,7 +24,7 @@ router.route('/:id')
 
 
 //Rutas para crear datos (Insertar en tablas) (Tipo POST)
-router.route('/crearPersona')
+/*router.route('/crearPersona')
     .post(createPerson)
 
 router.route('/crearProfesor')
@@ -54,6 +54,6 @@ router.route('/editPrograma/:id')
 
 router.route('/editAsignatura/:id')
     .put(editAsignatura)
-
+*/
 
 module.exports = router;

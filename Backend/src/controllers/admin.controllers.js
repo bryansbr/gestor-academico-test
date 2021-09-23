@@ -148,6 +148,7 @@ adminCtrl.getCareers = async(req, res) => {
 // ========================== MÉTODOS PARA CREAR DATOS ==========================
 
 //Este metodo crea una persona en la tabla persona
+/*
 adminCtrl.createPerson = async (req, res) => {  
 	const { id_persona, nombre, apellido, fech_nac, correo,
 			direccion, celular, genero, nacionalidad,
@@ -310,5 +311,6 @@ adminCtrl.editAsignatura = async (req, res) => {
 		}
 	);		 
 };
+*/
 
 module.exports = adminCtrl;
