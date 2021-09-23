@@ -12,21 +12,23 @@ const { getPersonById, getPersons, getAdminById, getAdmins,
     getCareerById, getCareers } = require('../controllers/admin.controllers');
 
 // ========================== Rutas para obtener datos (Tipo GET) ========================== 
-router.route('/')
-    .get(getAdmins); 
-
 router.route('/:id')
     .get(getAdminById); 
 
-router.route('/consultarprofesor/:id')
+router.route('/')
+    .get(getAdmins); 
+
+router.route('/consultarProfesor/:id')
     .get(getProfessorById); 
 
-router.route('/consultarprofesor/')
+router.route('/consultarProfesor/')
     .get(getProfessors); 
-    
-     
 
+router.route('/consultarAsignaturas/:id')
+    .get(getCourseById);
 
+router.route('/consultarAsignaturas')
+    .get(getCourses); 
 
 
 //Rutas para crear datos (Insertar en tablas) (Tipo POST)
