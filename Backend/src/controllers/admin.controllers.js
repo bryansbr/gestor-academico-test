@@ -73,6 +73,7 @@ adminCtrl.getAdmins = async (req, res) => {  // Obtenemos error, filas y campos 
 	);
 }
 
+// GRUPO 1: Mariana, Aurimar, Rafael
 // Este método, selecciona UN profesor por ID de la base de datos. 
 adminCtrl.getProfessorById = async(req, res) => {
 	const { id } = req.params;
@@ -90,6 +91,7 @@ adminCtrl.getProfessors = async(req, res) => {
 	);
 }
 
+// GRUPO 2: Leidy, Juniyelitmar
 // Este método, selecciona UN estudiante por ID de la base de datos. 
 adminCtrl.getStudentById = async(req, res) => {
 	const { id } = req.params;
@@ -107,6 +109,7 @@ adminCtrl.getStudents = async(req, res) => {
 	);
 }
 
+// GRUPO 3: Kimberly, Isabella, Katerine
 // Este método, selecciona UNA asignatura por ID de la base de datos. 
 adminCtrl.getCourseById = async(req, res) => {
 	const { id } = req.params;
@@ -124,6 +127,7 @@ adminCtrl.getCourses = async(req, res) => {
 	);
 }
 
+// Grupo 4: José David
 // Este método, selecciona UN programa académico por ID de la base de datos. 
 adminCtrl.getCareerById = async(req, res) => {
 	const { id } = req.params;
