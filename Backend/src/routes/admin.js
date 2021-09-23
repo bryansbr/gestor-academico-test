@@ -18,17 +18,23 @@ router.route('/:id')
 router.route('/')
     .get(getAdmins); 
 
-router.route('/consultarProfesor/:id')
+router.route('/profesor/:id')
     .get(getProfessorById); 
 
-router.route('/consultarProfesor/')
+router.route('/profesor/')
     .get(getProfessors); 
 
-router.route('/consultarAsignaturas/:id')
+router.route('/asignaturas/:id')
     .get(getCourseById);
 
-router.route('/consultarAsignaturas')
+router.route('/asignaturas')
     .get(getCourses); 
+
+router.route('/programasAcademicos/:id')
+    .get(getCareerById);
+
+router.route('/programasAcademicos')
+    .get(getCourses);
 
 
 //Rutas para crear datos (Insertar en tablas) (Tipo POST)

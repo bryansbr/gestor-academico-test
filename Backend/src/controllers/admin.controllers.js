@@ -60,7 +60,6 @@ adminCtrl.getAdminById = async (req, res) => {  // Obtenemos error, filas y camp
 // Este metodo selecciona TODOS los administradores de la base de datos.
 adminCtrl.getAdmins = async (req, res) => {  // Obtenemos error, filas y campos de la tabla.
 	await mysqlConnection.query(
-		//'SELECT * FROM persona',
 		'SELECT * FROM persona INNER JOIN administrador ON persona.id_persona = administrador.id_persona',
 		(err, rows, fields) => {
 			if (!err) {
@@ -80,16 +79,15 @@ adminCtrl.getProfessorById = async(req, res) => {
 	await mysqlConnection.query(
 		'SELECT * FROM persona INNER JOIN profesor ON '+
 		'persona.id_persona = profesor.id_persona WHERE profesor.id_profesor = ?',
-	   [id],
+		[id],
 		(err, rows, fields) => {
 			if (!err) {
-          		res.json(rows[0]); // Retorna un JSON en la primera posición con el administrador. 
+          		res.json(rows[0]); // Retorna un JSON en la primera posición con un profesor. 
       		}
       		else {
-         		console.log("=====> Ha ocurrido un error obteniendo al administrador: " + err);
+         		console.log("=====> Ha ocurrido un error obteniendo al profesor: " + err);
       		}
 		}
-
 	);
 }
 
@@ -97,14 +95,13 @@ adminCtrl.getProfessorById = async(req, res) => {
 adminCtrl.getProfessors = async(req, res) => {
 	// Escriba aquí abajo su código
 	await mysqlConnection.query(
-
 		'SELECT * FROM persona INNER JOIN profesor ON persona.id_persona = profesor.id_persona',
 		(err, rows, fields) => {
 			if (!err) {
-				res.json(rows); // Retorna un JSON con todos los administradores. 
+				res.json(rows); // Retorna un JSON con todos los profesores. 
 			}
 			else {
-				console.log("=====> Ha ocurrido un error obteniendo Administradores: " + err);
+				console.log("=====> Ha ocurrido un error obteniendo Profesores: " + err);
 			}
 		}
 	);
@@ -133,14 +130,14 @@ adminCtrl.getStudents = async(req, res) => {
 adminCtrl.getCourseById = async(req, res) => {
 	const { id } = req.params;
 	await mysqlConnection.query(
-		'select * from asignatura where asignatura.id_asign = ? ', 
+		'SELECT * FROM asignatura WHERE asignatura.id_asign = ?', 
 		[id],
 		(err, rows, fields) => {
 			if (!err) {
-          		res.json(rows[0]); // Retorna un JSON en la primera posición con el administrador. 
+          		res.json(rows[0]); // Retorna un JSON en la primera posición con la asignatura. 
       		}
       		else {
-         		console.log("=====> Ha ocurrido un error obteniendo al administrador: " + err);
+         		console.log("=====> Ha ocurrido un error obteniendo la asignatura: " + err);
       		}
 		}
 	);
@@ -149,13 +146,13 @@ adminCtrl.getCourseById = async(req, res) => {
 // Este método, selecciona TODAS las asignaturas de la base de datos.
 adminCtrl.getCourses = async(req, res) => {
 	await mysqlConnection.query(
-		'select * from asignatura',
+		'SELECT * FROM asignatura',
 		(err, rows, fields) => {
 			if (!err) {
-				res.json(rows); // Retorna un JSON con todos los administradores. 
+				res.json(rows); // Retorna un JSON con todas las asignaturas. 
 			}
 			else {
-				console.log("=====> Ha ocurrido un error obteniendo Administradores: " + err);
+				console.log("=====> Ha ocurrido un error obteniendo Asignaturas: " + err);
 			}
 		}
 	);
@@ -167,7 +164,16 @@ adminCtrl.getCareerById = async(req, res) => {
 	const { id } = req.params;
 	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
-		
+		'SELECT * FROM programa_academico WHERE programa_academico.id_progr = ?',
+		[id],
+		(err, rows, fields) => {
+			if (!err) {
+				res.json(rows[0]); // Retorna un JSON con el programa academico.
+			}
+			else {
+				console.log("=====> Ha ocurrido un error obteniendo el programa academico " + err);
+			}
+		}
 	);
 }
 
@@ -175,7 +181,15 @@ adminCtrl.getCareerById = async(req, res) => {
 adminCtrl.getCareers = async(req, res) => {
 	// Escriba aquí abajo su código
 	await mysqlConnection.query(
-
+		'SELECT * FROM programa_academico',
+		(err, rows, fields) => {
+			if (!err) {
+				res.json(rows); // Retorna un JSON con todos los programas academicos.
+			}
+			else {
+				console.log("=====> Ha ocurrido un error obteniendo Programa Academicos" + err);
+			}
+		}
 	);
 }
 

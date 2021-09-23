@@ -2,7 +2,7 @@
 require('dotenv').config();
 
 const app = require('./app');
-require('./databases/driverMongoDB');
+//require('./databases/driverMongoDB');
 require('./databases/driverMySql');
 app.set('port', process.env.PORT || 4000);
 
