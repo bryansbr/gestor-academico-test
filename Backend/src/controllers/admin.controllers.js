@@ -60,7 +60,8 @@ adminCtrl.getAdminById = async (req, res) => {  // Obtenemos error, filas y camp
 // Este metodo selecciona TODOS los administradores de la base de datos.
 adminCtrl.getAdmins = async (req, res) => {  // Obtenemos error, filas y campos de la tabla.
 	await mysqlConnection.query(
-		'SELECT * FROM persona INNER JOIN administrador ON persona.id_persona = administrador.id_persona',
+		'SELECT * FROM persona',
+		//'SELECT * FROM persona INNER JOIN administrador ON persona.id_persona = administrador.id_persona',
 		(err, rows, fields) => {
 			if (!err) {
 				res.json(rows); // Retorna un JSON con todos los administradores. 
@@ -158,7 +159,7 @@ adminCtrl.getCourses = async(req, res) => {
 	);
 }
 
-// Grupo 4: José David
+// Grupo 4: José David, Dangelyg
 // Este método, selecciona UN programa académico por ID de la base de datos. 
 adminCtrl.getCareerById = async(req, res) => {
 	const { id } = req.params;
@@ -194,6 +195,81 @@ adminCtrl.getCareers = async(req, res) => {
 }
 
 // ========================== MÉTODOS PARA CREAR DATOS ==========================
+
+// Este método, crea una persona en la base de datos
+adminCtrl.createPerson = async(req, res) => {
+	const { id_persona, nombre, apellido, fech_nac, correo,
+	direccion, celular, genero, nacionalidad,
+	nom_usuario, contrasena, creado_en } = req.body;
+	// Escriba aquí abajo su código
+	await mysqlConnection.query(
+		'INSERT INTO persona VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ',
+		[id_persona, nombre, apellido, fech_nac, correo,
+		direccion, celular, genero, nacionalidad,
+		nom_usuario, contrasena, creado_en], 
+		(err, rows, fields) => {
+			if (!err) {
+				console.log("¡Persona creada exitosamente!")	
+				res.json({message: 200});
+			}
+			else {
+				console.log("=====> Error creando persona: " + err);
+			}
+		}
+	);
+}
+
+// Grupo 5: Victor, Legna
+// Este método, crea un administrador en la base de datos
+adminCtrl.createAdmin = async(req, res) => {
+	// Escriba aquí abajo su código
+	await mysqlConnection.query(
+
+	);
+
+}
+
+// Grupo 6: Kevin, Valeria, Mónica
+// Este método, crea una profesor en la base de datos
+adminCtrl.createProfessor = async(req, res) => {
+	// Escriba aquí abajo su código
+	await mysqlConnection.query(
+		
+	);
+
+}
+
+// Grupo 7: Diana, Flor
+// Este método, crea un estudiante en la base de datos
+adminCtrl.createStudent = async(req, res) => {
+	// Escriba aquí abajo su código
+	await mysqlConnection.query(
+		
+	);
+
+}
+
+// Grupo 8: Mariana, Nicolas
+// Este método, crea un programa académico en la base de datos
+adminCtrl.createCareer = async(req, res) => {
+	// Escriba aquí abajo su código
+	await mysqlConnection.query(
+		
+	);
+
+}
+
+// Grupo 9: 
+// Este método, crea una asignatura en la base de datos
+adminCtrl.createCourse = async(req, res) => {
+	// Escriba aquí abajo su código
+	await mysqlConnection.query(
+		
+	);
+
+}
+
+// ========================== OTROS MÉTODOS ==========================
 
 //Este metodo crea una persona en la tabla persona
 /*

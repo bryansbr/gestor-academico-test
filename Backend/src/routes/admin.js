@@ -1,4 +1,5 @@
 const express = require('express');
+const app = express();
 const router = express.Router();
 
 //llamnado controlador
@@ -16,12 +17,12 @@ router.route('/:id')
     .get(getAdminById); 
 
 router.route('/')
-    .get(getAdmins); 
+    .get(getAdmins);
 
-router.route('/profesor/:id')
+router.route('/profesores/:id')
     .get(getProfessorById); 
 
-router.route('/profesor/')
+router.route('/profesores')
     .get(getProfessors); 
 
 router.route('/asignaturas/:id')
