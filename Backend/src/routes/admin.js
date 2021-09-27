@@ -52,7 +52,8 @@ router.route('/programasAcademicos')
 router.route('/asignaturas')
     .post(createCourse); 
 
-
+router.route('/estudiantes')
+    .post(createStudent); 
 // ========================== RUTAS PARA CREAR DATOS (PUT) ==========================
 
 

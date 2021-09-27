@@ -196,21 +196,19 @@ adminCtrl.getCareers = async(req, res) => {
 // ========================== MÉTODOS PARA CREAR DATOS ==========================
 
 // Este método, crea una persona en la base de datos SQL.
-adminCtrl.createPerson = async(req, res) => {
-	const { id_persona, nombre, apellido, fech_nac, correo, direccion, celular,
-	genero, nacionalidad, nom_usuario, contrasena, creado_en } = req.body;
+adminCtrl.createEstudiante = async(req, res) => {
+	const { id_estudiante, id_programa, id_persona } = req.body;
 	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
-		'INSERT INTO persona VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-		[id_persona, nombre, apellido, fech_nac, correo, direccion, celular,
-		genero, nacionalidad, nom_usuario, contrasena, creado_en], 
+		'INSERT INTO Estudiante VALUES (?, ?, ?,)',
+		[id_estudiante, id_programa, id_persona ], 
 		(err, rows, fields) => {
 			if (!err) {
-				console.log("¡Persona creada exitosamente!")	
+				console.log("¡estudiante creada exitosamente!")	
 				res.json({message: 200}); // Responde un 200 si la persona se creo exitosamente.
 			}
 			else {
-				console.log("=====> Error creando persona: " + err);
+				console.log("=====> Error creando estudiante: " + err);
 			}
 		}
 	);
@@ -238,8 +236,21 @@ adminCtrl.createProfessor = async(req, res) => {
 // Este método, crea un estudiante en la base de datos SQL.
 adminCtrl.createStudent = async(req, res) => {
 	// Escriba aquí abajo su código.
+	const { id_estudiante, id_progr, id_persona } = req.body;
 	await mysqlConnection.query(
+		'INSERT INTO estudiante VALUES (?, ?, ?)',
+		[id_estudiante, id_progr, id_persona ], 
+		(err, rows, fields) => {
+			if (!err) {
+				console.log("¡estudiante creada exitosamente!")	
+				res.json({message: 200}); // Responde un 200 si la persona se creo exitosamente.
+			}
+			else {
+				console.log("=====> Error creando estudiante " + err);
+			}		
+			
 		
+		}		
 	);
 }
 
