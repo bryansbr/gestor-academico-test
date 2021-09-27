@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 const { getPersonById, getPersons, getAdminById, getAdmins,
-    getProfessorById, getProfessors, getStudentById,
-    getStudents, getCourseById, getCourses,
-    getCareerById, getCareers, createPerson,
-    createAdmin, createProfessor, createStudent, 
-    createCareer, createCourse } = require('../controllers/admin.controllers');
+    getProfessorById, getProfessors,getStudentById, getStudents,
+    getCourseById, getCourses,getCareerById, getCareers,
+    createPerson, createAdmin, createProfessor, createStudent,
+    createCareer, createCourse, editPerson, editAdmin,
+    editProfessor, editCareer, editCourse, deletePerson,
+    deleteAdmin, deleteProfessor, deleteCareer, deleteCourse } = require('../controllers/admin.controllers');
 
 // ========================== RUTAS PARA OBTENER DATOS (GET) ==========================
 

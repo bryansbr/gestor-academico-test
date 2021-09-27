@@ -72,7 +72,7 @@ adminCtrl.getAdmins = async (req, res) => {  // Obtenemos error, filas y campos 
 	);
 }
 
-// GRUPO 1: Mariana, Aurimar, Rafael
+// GRUPO 1: Mariana Rosario, Aurimar Suárez, Rafael García.
 // Este método, selecciona UN profesor por ID de la base de datos SQL.
 adminCtrl.getProfessorById = async(req, res) => {
 	const { id_profesor } = req.params;
@@ -107,7 +107,7 @@ adminCtrl.getProfessors = async(req, res) => {
 	);
 }
 
-// GRUPO 2: Luis, Kimberly, Katerine
+// GRUPO 2: Luis Peña, Kimberly Bastidas, Katerine Cortes.
 // Este método, selecciona UN estudiante por ID de la base de datos SQL.
 adminCtrl.getStudentById = async(req, res) => {
 	const { id_estudiante } = req.params;
@@ -125,7 +125,7 @@ adminCtrl.getStudents = async(req, res) => {
 	);
 }
 
-// GRUPO 3: Leidy, Juniyelitmar
+// GRUPO 3: Leidy Galindez, Juniyelitmar Gutierrez.
 // Este método, selecciona UNA asignatura por ID de la base de datos SQL.
 adminCtrl.getCourseById = async(req, res) => {
 	const { id_asign } = req.params;
@@ -158,7 +158,7 @@ adminCtrl.getCourses = async(req, res) => {
 	);
 }
 
-// Grupo 4: José David
+// Grupo 4: José David Aguiar, Dangelyg Marquina.
 // Este método, selecciona UN programa académico por ID de la base de datos SQL.
 adminCtrl.getCareerById = async(req, res) => {
 	const { id_progr } = req.params;
@@ -216,7 +216,7 @@ adminCtrl.createPerson = async(req, res) => {
 	);
 }
 
-// Grupo 5: Victor, Isabella, Britney
+// Grupo 5: Nicolas Quintero, Alvaro Cuadros.
 // Este método, crea un administrador en la base de datos SQL.
 adminCtrl.createAdmin = async(req, res) => {
 	// Escriba aquí abajo su código.
@@ -225,7 +225,7 @@ adminCtrl.createAdmin = async(req, res) => {
 	);
 }
 
-// Grupo 6: Kevin, Valeria, Mónica
+// Grupo 6: José Gregorio Rojas,  Vanessa Jaramillo, Britney Bravo. (?)
 // Este método, crea una profesor en la base de datos SQL.
 adminCtrl.createProfessor = async(req, res) => {
 	// Escriba aquí abajo su código.
@@ -234,7 +234,7 @@ adminCtrl.createProfessor = async(req, res) => {
 	);
 }
 
-// Grupo 7: Diana, Flor
+// Grupo 7: Legna Flores, Enyerbeth Matehus.
 // Este método, crea un estudiante en la base de datos SQL.
 adminCtrl.createStudent = async(req, res) => {
 	// Escriba aquí abajo su código.
@@ -243,7 +243,7 @@ adminCtrl.createStudent = async(req, res) => {
 	);
 }
 
-// Grupo 8: Legna, Elizabeth, Andres
+// Grupo 8: Elizabeth Cuastumal, Andrés Cuatín.
 // Este método, crea un programa académico en la base de datos SQL.
 adminCtrl.createCareer = async(req, res) => {
 	// Escriba aquí abajo su código.
@@ -252,7 +252,7 @@ adminCtrl.createCareer = async(req, res) => {
 	);
 }
 
-// Grupo 9: 
+// Grupo 9: Kevin Perdomo, Valeria Padilla, Monica Materano.
 // Este método, crea una asignatura en la base de datos SQL.
 adminCtrl.createCourse = async(req, res) => {
 	// Escriba aquí abajo su código.
@@ -285,6 +285,7 @@ adminCtrl.editPerson = async (req, res) => {
 	);		 
 }
 
+// Grupo 10: Victor Chapid, Isabella Conrrao.
 // Este metodo, edita una administrador en la base de datos SQL.
 adminCtrl.editAdmin = async (req, res) => {
 	// Escriba aquí abajo su código.
@@ -293,42 +294,79 @@ adminCtrl.editAdmin = async (req, res) => {
 	);		 
 }
 
-//Este metodo edita un programa en  la tabla programas
-adminCtrl.editPrograma = async (req, res) => {
-	const{id} = req.params  
-	const {nombre_programa} = req.body;
+//Este metodo edita un profesor en la base de datos SQL.
+adminCtrl.editProfessor = async (req, res) => {
+	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
-		'UPDATE programas SET nombre_programa = ?  WHERE id_programa = ?;',
-			 [nombre_programa, id]
-			 , (err, rows, fields) => {
-			 if(!err){
-				 res.json({message: 200});
-			 }
-			 else{
-				 console.log("=====> Error en editar programa" + err);
-			 };
-		}
+		// // Escriba aquí abajo su el resto del código.
 	);		 
-};
+}
 
-//Este metodo editar una asignatura en la tabla asignaturas
-adminCtrl.editAsignatura = async (req, res) => {
-	const{id} = req.params  
-	const {nombre_asignatura} = req.body;
+//Este metodo edita un programa académico en la base de datos SQL.
+adminCtrl.editCareer = async (req, res) => {
+	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
-		'UPDATE asignaturas SET nombre_asignatura = ?  WHERE id_asignatura = ?;',
-			 [nombre_asignatura, id]
-			 , (err, rows, fields) => {
-			 if(!err){
-				 res.json({message:200});
-			 }
-			 else{
-				 console.log("=====> Error en editar asignatura" + err);
-			 };
-		}
+		// // Escriba aquí abajo su el resto del código.
 	);		 
-};
+}
+
+//Este metodo edita una asignatura en la base de datos SQL.
+adminCtrl.editCourse = async (req, res) => {
+	// Escriba aquí abajo su código.
+	await mysqlConnection.query(
+		// // Escriba aquí abajo su el resto del código.
+	);		 
+}
 
 // ========================== MÉTODOS PARA ELIMINAR DATOS ==========================
+
+// Este metodo, elimina una persona en la base de datos SQL.
+adminCtrl.deletePerson = async (req, res) => {
+	const { id_persona } = req.params;
+	await mysqlConnection.query(
+		'DELETE FROM persona WHERE id_persona = ?',
+		[ id_persona ],
+		(err, rows, fields) => {
+			if (!err){
+				res.json({message: 200}); // Responde un 200 si la persona se editó exitosamente.
+			} 
+			else {
+				console.log("=====> Error al eliminar persona" + err);
+			}
+		}
+	);		 
+}
+
+// Este metodo, elimina una administrador en la base de datos SQL.
+adminCtrl.deleteAdmin = async (req, res) => {
+	// Escriba aquí abajo su código.
+	await mysqlConnection.query(
+		// // Escriba aquí abajo su el resto del código.
+	);		 
+}
+
+//Este metodo elimina un profesor en la base de datos SQL.
+adminCtrl.deleteProfessor = async (req, res) => {
+	// Escriba aquí abajo su código.
+	await mysqlConnection.query(
+		// // Escriba aquí abajo su el resto del código.
+	);		 
+}
+
+//Este metodo elimina un programa académico en la base de datos SQL.
+adminCtrl.deleteCareer = async (req, res) => {
+	// Escriba aquí abajo su código.
+	await mysqlConnection.query(
+		// // Escriba aquí abajo su el resto del código.
+	);		 
+}
+
+//Este metodo elimina una asignatura en la base de datos SQL.
+adminCtrl.deleteCourse = async (req, res) => {
+	// Escriba aquí abajo su código.
+	await mysqlConnection.query(
+		// // Escriba aquí abajo su el resto del código.
+	);		 
+}
 
 module.exports = adminCtrl;
