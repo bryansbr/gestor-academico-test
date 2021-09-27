@@ -49,7 +49,8 @@ router.route('/programasAcademicos')
     .get(getCourses);
 
 // ========================== RUTAS PARA CREAR DATOS (POST) ==========================
-
+router.route('/asignaturas')
+    .post(createCourse); 
 
 
 // ========================== RUTAS PARA CREAR DATOS (PUT) ==========================

@@ -256,9 +256,19 @@ adminCtrl.createCareer = async(req, res) => {
 // Este método, crea una asignatura en la base de datos SQL.
 adminCtrl.createCourse = async(req, res) => {
 	// Escriba aquí abajo su código.
-	await mysqlConnection.query(
-		
-	);
+	const { id_asign, nom_asign, id_profesor, id_persona, id_progr } = req.body;
+    await mysqlConnection.query(
+		'INSERT INTO asignatura VALUES (?, ?, ?, ?, ?) ',
+        [id_asign, nom_asign, id_profesor, id_persona, id_progr], 
+            (err, rows, fields) => {
+                if (!err) {
+                    console.log("¡Asignatura creada exitosamente!")	
+                     res.json({message: 200}); // Responde un 200 si la asignatura se ha creado exitosamente 
+                }
+                else {
+                    console.log("=====> Error Asignatura en tabla Asignatura" + err);
+                }
+            });
 }
 
 // ========================== MÉTODOS PARA EDITAR DATOS ==========================
