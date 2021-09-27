@@ -329,4 +329,6 @@ adminCtrl.editAsignatura = async (req, res) => {
 	);		 
 };
 
+// ========================== MÉTODOS PARA ELIMINAR DATOS ==========================
+
 module.exports = adminCtrl;

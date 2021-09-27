@@ -8,7 +8,7 @@ const { getPersonById, getPersons, getAdminById, getAdmins,
     createAdmin, createProfessor, createStudent, 
     createCareer, createCourse } = require('../controllers/admin.controllers');
 
-// ========================== Rutas para obtener datos (Tipo GET) ==========================
+// ========================== RUTAS PARA OBTENER DATOS (GET) ==========================
 
 // Rutas Personas
 router.route('/personas/:id_persona')
@@ -47,38 +47,16 @@ router.route('/programasAcademicos/:id_progr')
 router.route('/programasAcademicos')
     .get(getCourses);
 
-
-//Rutas para crear datos (Insertar en tablas) (Tipo POST)
-/*router.route('/crearPersona')
-    .post(createPerson)
-
-router.route('/crearProfesor')
-    .post(createProfesor)
-
-router.route('/crearEstudiante')
-    .post(createEstudiante)
-
-router.route('/crearAdministrador')
-    .post(createAdministrador)
-
-router.route('/crearPrograma')
-    .post(createPrograma)
-
-router.route('/crearAsignatura')
-    .post(createAsignatura)
+// ========================== RUTAS PARA CREAR DATOS (POST) ==========================
 
 
-//Rutas para editar datos (Tipo PUT)    
-router.route('/editPersona/:id')
-    .put(editPersona)
+
+// ========================== RUTAS PARA CREAR DATOS (PUT) ==========================
 
 
-router.route('/editPrograma/:id')
-    .put(editPrograma)
+
+// ========================== RUTAS PARA CREAR DATOS (DELETE) ==========================
 
 
-router.route('/editAsignatura/:id')
-    .put(editAsignatura)
-*/
 
 module.exports = router;
