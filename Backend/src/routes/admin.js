@@ -1,37 +1,47 @@
 const express = require('express');
-const app = express();
 const router = express.Router();
-
-//llamnado controlador
-/*const {getAdmins, getAdmin, getPerson, createProfesor, createPerson, createEstudiante, createPrograma, 
-    createAdministrador, createAsignatura, editPersona, editAsignatura, editPrograma} = require('../controllers/admin.controllers');
-*/
 
 const { getPersonById, getPersons, getAdminById, getAdmins,
     getProfessorById, getProfessors, getStudentById,
     getStudents, getCourseById, getCourses,
-    getCareerById, getCareers } = require('../controllers/admin.controllers');
+    getCareerById, getCareers, createPerson,
+    createAdmin, createProfessor, createStudent, 
+    createCareer, createCourse } = require('../controllers/admin.controllers');
 
-// ========================== Rutas para obtener datos (Tipo GET) ========================== 
-router.route('/:id')
+// ========================== Rutas para obtener datos (Tipo GET) ==========================
+
+// Rutas Personas
+router.route('/personas/:id_persona')
+    .get(getPersonById); 
+
+router.route('/personas/')
+    .get(getPersons);
+
+// Rutas Administradores
+router.route('/administradores/:id_adm')
     .get(getAdminById); 
 
-router.route('/')
+router.route('/administradores/')
     .get(getAdmins);
 
-router.route('/profesores/:id')
+// Rutas Profesores
+router.route('/profesores/:id_profesor')
     .get(getProfessorById); 
 
 router.route('/profesores')
     .get(getProfessors); 
 
-router.route('/asignaturas/:id')
+// Rutas Estudiantes
+
+// Rutas Asignaturas
+router.route('/asignaturas/:id_asign')
     .get(getCourseById);
 
 router.route('/asignaturas')
     .get(getCourses); 
 
-router.route('/programasAcademicos/:id')
+// Rutas Programas Académicos
+router.route('/programasAcademicos/:id_progr')
     .get(getCareerById);
 
 router.route('/programasAcademicos')
