@@ -225,7 +225,7 @@ adminCtrl.createAdmin = async(req, res) => {
 	);
 }
 
-// Grupo 6: José Gregorio Rojas,  Vanessa Jaramillo, Britney Bravo. (?)
+// Grupo 6: José Gregorio Rojas,  Vanessa Jaramillo.
 // Este método, crea una profesor en la base de datos SQL.
 adminCtrl.createProfessor = async(req, res) => {
 	// Escriba aquí abajo su código.
@@ -285,7 +285,7 @@ adminCtrl.editPerson = async (req, res) => {
 	);		 
 }
 
-// Grupo 10: Victor Chapid, Isabella Conrrao.
+// Grupo 10: Victor Chapid, Isabella Conrrao, Britney Bravo.
 // Este metodo, edita una administrador en la base de datos SQL.
 adminCtrl.editAdmin = async (req, res) => {
 	// Escriba aquí abajo su código.
