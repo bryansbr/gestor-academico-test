@@ -112,7 +112,7 @@ adminCtrl.getProfessors = async(req, res) => {
 adminCtrl.getEstudianteById = async (req, res) => {  // Obtenemos error, filas y campos de la tabla
 	const { id_estudiante } = req.params;
 	await mysqlConnection.query(
-		'SELECT * FROM persona INNER JOIN estudiante ON ' +
+		'SELECT * FROM person INNER JOIN estudiante ON ' +
 		'persona.id_persona = estudiante.id_persona WHERE estudiante.id_estudiante = ?',
 	    [ id_estudiante ],
 		(err, rows, fields) => {
