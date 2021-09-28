@@ -210,9 +210,19 @@ adminCtrl.createAdmin = async(req, res) => {
 // Este método, crea una profesor en la base de datos SQL.
 adminCtrl.createProfessor = async(req, res) => {
 	// Escriba aquí abajo su código.
-	await mysqlConnection.query(
-		
-	);
+	const { id_profesor, profesion, id_persona, id_adm } = req.body;
+    await mysqlConnection.query(
+		'INSERT INTO profesor VALUES (?, ?, ?, ?) ',
+        [id_profesor, profesion, id_persona, id_adm], 
+            (err, rows, fields) => {
+                if (!err) {
+                    console.log("¡profesor creado exitosamente!")	
+                     res.json({message: 200}); // Responde un 200 si el profesor se ha creado exitosamente 
+                }
+                else {
+                    console.log("=====> Error profesor en tabla profesor" + err);
+                }
+            });
 }
 
 // Grupo 7: Legna Flores, Enyerbeth Matehus.
