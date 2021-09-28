@@ -54,12 +54,17 @@ router.route('/estudiantes')
 router.route('/profesores')
     .post(createProfessor); 
 
+    router.route('/personas/')
+    .put(getPersons);
+
 // ========================== RUTAS PARA CREAR DATOS (PUT) ==========================
 
 
 
-// ========================== RUTAS PARA CREAR DATOS (DELETE) ==========================
+router.route('/progaca')
+    .post(editCareer); 
 
+// ========================== RUTAS PARA CREAR DATOS (DELETE) ==========================
 
 
 module.exports = router;
