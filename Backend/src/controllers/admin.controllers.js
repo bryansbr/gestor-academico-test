@@ -109,19 +109,37 @@ adminCtrl.getProfessors = async(req, res) => {
 
 // GRUPO 2: Luis Peña, Kimberly Bastidas, Katerine Cortes.
 // Este método, selecciona UN estudiante por ID de la base de datos SQL.
-adminCtrl.getStudentById = async(req, res) => {
+adminCtrl.getEstudianteById = async (req, res) => {  // Obtenemos error, filas y campos de la tabla
 	const { id_estudiante } = req.params;
-	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
-
+		'SELECT * FROM persona INNER JOIN estudiante ON ' +
+		'persona.id_persona = estudiante.id_persona WHERE estudiante.id_estudiante = ?',
+	    [ id_estudiante ],
+		(err, rows, fields) => {
+			if (!err) {
+          		res.json(rows[0]); // Retorna un JSON en la primera posición con el estudiantes. 
+      		}
+      		else {
+         		console.log("=====> Ha ocurrido un error obteniendo al estudiante: " + err);
+      		}
+		}
 	);
 }
 
-// Este método, selecciona TODOS los estudiantes de la base de datos SQL.
-adminCtrl.getStudents = async(req, res) => {
-	// Escriba aquí abajo su código.
-	await mysqlConnection.query(
 
+
+// Este método, selecciona TODOS los estudiantes de la base de datos SQL.
+adminCtrl.getEstudiante = async (req, res) => {  // Obtenemos error, filas y campos de la tabla.
+	await mysqlConnection.query(
+		'SELECT * FROM persona INNER JOIN estudiante ON persona.id_persona = estudiante.id_persona',
+		(err, rows, fields) => {
+			if (!err) {
+				res.json(rows); // Retorna un JSON con todos los estudiantes. 
+			}
+			else {
+				console.log("=====> Ha ocurrido un error obteniendo Estudiantes: " + err);
+			}
+		}
 	);
 }
 
