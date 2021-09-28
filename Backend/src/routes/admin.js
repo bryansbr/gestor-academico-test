@@ -33,7 +33,11 @@ router.route('/profesores')
     .get(getProfessors); 
 
 // Rutas Estudiantes
+router.route('/estudiante/:id_estudiante')
+    .get(getEstudianteById);
 
+    router.route('/estudiante')
+    .get(getEstudiante); 
 // Rutas Asignaturas
 router.route('/asignaturas/:id_asign')
     .get(getCourseById);
