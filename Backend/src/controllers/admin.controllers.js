@@ -161,19 +161,9 @@ adminCtrl.getCourses = async(req, res) => {
 // Grupo 4: José David Aguiar, Dangelyg Marquina.
 // Este método, selecciona UN programa académico por ID de la base de datos SQL.
 adminCtrl.getCareerById = async(req, res) => {
-	const { id_progr } = req.params;
 	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
-		'SELECT * FROM programa_academico WHERE programa_academico.id_progr = ?',
-		[ id_progr ],
-		(err, rows, fields) => {
-			if (!err) {
-				res.json(rows[0]); // Retorna un JSON con el programa academico.
-			}
-			else {
-				console.log("=====> Ha ocurrido un error obteniendo el programa academico " + err);
-			}
-		}
+
 	);
 }
 
@@ -181,34 +171,27 @@ adminCtrl.getCareerById = async(req, res) => {
 adminCtrl.getCareers = async(req, res) => {
 	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
-		'SELECT * FROM programa_academico',
-		(err, rows, fields) => {
-			if (!err) {
-				res.json(rows); // Retorna un JSON con todos los programas academicos.
-			}
-			else {
-				console.log("=====> Ha ocurrido un error obteniendo Programa Academicos" + err);
-			}
-		}
+
 	);
 }
 
 // ========================== MÉTODOS PARA CREAR DATOS ==========================
 
 // Este método, crea una persona en la base de datos SQL.
-adminCtrl.createEstudiante = async(req, res) => {
-	const { id_estudiante, id_programa, id_persona } = req.body;
-	// Escriba aquí abajo su código.
+adminCtrl.createPerson = async(req, res) => {
+	const { id_persona, nombre, apellido, fech_nac, correo, direccion, celular,
+	genero, nacionalidad, nom_usuario, contrasena, creado_en } = req.body;
 	await mysqlConnection.query(
-		'INSERT INTO Estudiante VALUES (?, ?, ?,)',
-		[id_estudiante, id_programa, id_persona ], 
+		'INSERT INTO persona VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+		[ id_persona, nombre, apellido, fech_nac, correo, direccion, celular,
+		genero, nacionalidad, nom_usuario, contrasena, creado_en ],
 		(err, rows, fields) => {
 			if (!err) {
-				console.log("¡estudiante creada exitosamente!")	
+				console.log("¡Persona creada exitosamente!")	
 				res.json({message: 200}); // Responde un 200 si la persona se creo exitosamente.
 			}
 			else {
-				console.log("=====> Error creando estudiante: " + err);
+				console.log("=====> Error creando persona: " + err);
 			}
 		}
 	);
@@ -223,7 +206,7 @@ adminCtrl.createAdmin = async(req, res) => {
 	);
 }
 
-// Grupo 6: José Gregorio Rojas,  Vanessa Jaramillo.
+// Grupo 6: José Gregorio Rojas, Vanessa Jaramillo.
 // Este método, crea una profesor en la base de datos SQL.
 adminCtrl.createProfessor = async(req, res) => {
 	// Escriba aquí abajo su código.
@@ -239,7 +222,7 @@ adminCtrl.createStudent = async(req, res) => {
 	const { id_estudiante, id_progr, id_persona } = req.body;
 	await mysqlConnection.query(
 		'INSERT INTO estudiante VALUES (?, ?, ?)',
-		[id_estudiante, id_progr, id_persona ], 
+		[ id_estudiante, id_progr, id_persona ], 
 		(err, rows, fields) => {
 			if (!err) {
 				console.log("¡estudiante creada exitosamente!")	
@@ -248,8 +231,6 @@ adminCtrl.createStudent = async(req, res) => {
 			else {
 				console.log("=====> Error creando estudiante " + err);
 			}		
-			
-		
 		}		
 	);
 }
@@ -269,17 +250,18 @@ adminCtrl.createCourse = async(req, res) => {
 	// Escriba aquí abajo su código.
 	const { id_asign, nom_asign, id_profesor, id_persona, id_progr } = req.body;
     await mysqlConnection.query(
-		'INSERT INTO asignatura VALUES (?, ?, ?, ?, ?) ',
+		'INSERT INTO asignatura VALUES (?, ?, ?, ?, ?)',
         [id_asign, nom_asign, id_profesor, id_persona, id_progr], 
-            (err, rows, fields) => {
-                if (!err) {
-                    console.log("¡Asignatura creada exitosamente!")	
-                     res.json({message: 200}); // Responde un 200 si la asignatura se ha creado exitosamente 
-                }
-                else {
-                    console.log("=====> Error Asignatura en tabla Asignatura" + err);
-                }
-            });
+        (err, rows, fields) => {
+            if (!err) {
+                console.log("¡Asignatura creada exitosamente!")	
+                res.json({message: 200}); // Responde un 200 si la asignatura se ha creado exitosamente 
+            }
+            else {
+                console.log("=====> Error creando asignatura " + err);
+            }
+        }
+	);
 }
 
 // ========================== MÉTODOS PARA EDITAR DATOS ==========================
@@ -315,7 +297,7 @@ adminCtrl.editAdmin = async (req, res) => {
 	);		 
 }
 
-//Este metodo edita un profesor en la base de datos SQL.
+// Este metodo edita un profesor en la base de datos SQL.
 adminCtrl.editProfessor = async (req, res) => {
 	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
@@ -323,7 +305,7 @@ adminCtrl.editProfessor = async (req, res) => {
 	);		 
 }
 
-//Este metodo edita un programa académico en la base de datos SQL.
+// Este metodo edita un programa académico en la base de datos SQL.
 adminCtrl.editCareer = async (req, res) => {
 	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
@@ -331,7 +313,7 @@ adminCtrl.editCareer = async (req, res) => {
 	);		 
 }
 
-//Este metodo edita una asignatura en la base de datos SQL.
+// Este metodo edita una asignatura en la base de datos SQL.
 adminCtrl.editCourse = async (req, res) => {
 	// Escriba aquí abajo su código.
 	await mysqlConnection.query(

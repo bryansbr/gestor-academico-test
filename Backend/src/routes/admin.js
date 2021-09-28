@@ -41,19 +41,16 @@ router.route('/asignaturas/:id_asign')
 router.route('/asignaturas')
     .get(getCourses); 
 
-// Rutas Programas Académicos
-router.route('/programasAcademicos/:id_progr')
-    .get(getCareerById);
-
-router.route('/programasAcademicos')
-    .get(getCourses);
-
 // ========================== RUTAS PARA CREAR DATOS (POST) ==========================
+
+// Ruta para crear asignaturas
 router.route('/asignaturas')
     .post(createCourse); 
 
+// Ruta para crear estudiantes
 router.route('/estudiantes')
-    .post(createStudent); 
+    .post(createStudent);
+
 // ========================== RUTAS PARA CREAR DATOS (PUT) ==========================
 
 
