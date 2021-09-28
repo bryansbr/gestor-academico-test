@@ -229,14 +229,10 @@ adminCtrl.createAdmin = async(req, res) => {
 // Este método, crea una profesor en la base de datos SQL.
 adminCtrl.createProfessor = async(req, res) => {
 	// Escriba aquí abajo su código.
-	const { id_persona, nombre, apellido, fech_nac, correo, direccion, 
-		celular, genero, nacionalidad, nom_usuario, contrasena, 
-		creado_en, id_profesor, profesion, id_adm } = req.body;
+	const { id_profesor, profesion, id_persona, id_adm } = req.body;
     await mysqlConnection.query(
-		'INSERT INTO profesor VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ',
-        [id_persona, nombre, apellido, fech_nac, correo, direccion, 
-			celular, genero, nacionalidad, nom_usuario, contrasena, 
-			creado_en, id_profesor, profesion, id_adm], 
+		'INSERT INTO profesor VALUES (?, ?, ?, ?) ',
+        [id_profesor, profesion, id_persona, id_adm], 
             (err, rows, fields) => {
                 if (!err) {
                     console.log("¡profesor creado exitosamente!")	
