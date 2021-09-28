@@ -251,7 +251,7 @@ adminCtrl.createCourse = async(req, res) => {
 	const { id_asign, nom_asign, id_profesor, id_persona, id_progr } = req.body;
     await mysqlConnection.query(
 		'INSERT INTO asignatura VALUES (?, ?, ?, ?, ?)',
-        [id_asign, nom_asign, id_profesor, id_persona, id_progr], 
+        [ id_asign, nom_asign, id_profesor, id_persona, id_progr ], 
         (err, rows, fields) => {
             if (!err) {
                 console.log("¡Asignatura creada exitosamente!")	
