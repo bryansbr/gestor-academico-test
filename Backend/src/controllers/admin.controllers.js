@@ -305,11 +305,12 @@ adminCtrl.editProfessor = async (req, res) => {
 	);		 
 }
 
+// Grupo 11: Darwin Alvarez, Flor Delgado.
 // Este metodo edita un programa académico en la base de datos SQL.
 adminCtrl.editCareer = async (req, res) => {
 	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
-		// // Escriba aquí abajo su el resto del código.
+		// Escriba aquí abajo su el resto del código.
 	);		 
 }
 
