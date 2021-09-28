@@ -245,13 +245,25 @@ adminCtrl.createStudent = async(req, res) => {
 
 // Grupo 8: Elizabeth Cuastumal, Andrés Cuatín.
 // Este método, crea un programa académico en la base de datos SQL.
+
+
 adminCtrl.createCareer = async(req, res) => {
+	const { id_progr,nom_progr, abrv_progr, jornada } = req.body;
 	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
-		
+		'INSERT INTO persona VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+		[id_progr,nom_progr, abrv_progr, jornada], 
+		(err, rows, fields) => {
+			if (!err) {
+				console.log("¡Persona creada exitosamente!")	
+				res.json({message: 200}); // Responde un 200 si la persona se creo exitosamente.
+			}
+			else {
+				console.log("=====> Error creando persona: " + err);
+			}
+		}
 	);
 }
-
 // Grupo 9: Kevin Perdomo, Valeria Padilla, Monica Materano.
 // Este método, crea una asignatura en la base de datos SQL.
 adminCtrl.createCourse = async(req, res) => {

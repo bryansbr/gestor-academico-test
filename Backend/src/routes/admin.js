@@ -12,7 +12,7 @@ const { getPersonById, getPersons, getAdminById, getAdmins,
 // ========================== RUTAS PARA OBTENER DATOS (GET) ==========================
 
 // Rutas Personas
-router.route('/personas/:id_persona')
+router.route('/ersonas/:id_persona')
     .get(getPersonById); 
 
 router.route('/personas/')
@@ -52,6 +52,8 @@ router.route('/programasAcademicos')
 router.route('/asignaturas')
     .post(createCourse); 
 
+    router.route('/crearprograma')
+    .post(createCareer); 
 
 // ========================== RUTAS PARA CREAR DATOS (PUT) ==========================
 
