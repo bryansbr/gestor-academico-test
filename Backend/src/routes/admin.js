@@ -59,10 +59,8 @@ router.route('/profesores')
 
 // ========================== RUTAS PARA CREAR DATOS (PUT) ==========================
 
-
-
-router.route('/progaca')
-    .post(editCareer); 
+router.route('/programaAcademico/:id_progr')
+    .put(editCareer);
 
 // ========================== RUTAS PARA CREAR DATOS (DELETE) ==========================
 

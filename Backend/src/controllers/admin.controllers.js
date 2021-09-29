@@ -28,7 +28,8 @@ adminCtrl.getPersonById = async(req, res) => {
 adminCtrl.getPersons = (req, res) => {
 	// Escriba aquí abajo su código.
 	mysqlConnection.query(
-		'SELECT * FROM persona', // Escriba su consulta para obtener todas las personas en la base de datos.
+		'SELECT * FROM programa_academico',
+		//'SELECT * FROM persona', // Escriba su consulta para obtener todas las personas en la base de datos.
 		(err, rows, fields) => {
 			if (!err) {
 				res.json(rows) // Retorna un JSON con todas las personas. 
@@ -323,10 +324,9 @@ adminCtrl.editCareer = async (req, res) => {
 	// Escriba aquí abajo su código.
 	await mysqlConnection.query(
 		// Escriba aquí abajo su el resto del código.
-		'UPDATE programa_academico SET ' + 
-		'programa_academico.nom_progr = ?, programa_academico.abrv_progr = ?, programa_academico.jornada = ? ' +
-		'WHERE programa_academico.id_progr = ?;', 
-		[ id_progr, nom_progr, abrv_progr, jornada],
+		'UPDATE programa_academico SET programa_academico.nom_progr = ?, programa_academico.abrv_progr = ?, programa_academico.jornada = ? WHERE programa_academico.id_progr = ?', 
+		//[ id_progr ],
+		[ nom_progr, abrv_progr, jornada, id_progr ],
 		(err, rows, fields) => {
 			if (!err){
 				res.json({message: 200}); // Responde un 200 si programa académico se editó exitosamente.
